@@ -1,19 +1,8 @@
-# Use an official Maven image to build the app
-FROM maven:3.9.6-eclipse-temurin-17 AS build
-WORKDIR /app
-
-# Copy project files
+FROM maven:3.8.5-openjdk-17 AS build
 COPY . .
-
-# Build the project
 RUN mvn clean package -DskipTests
 
-# Use a lightweight Java runtime to run the app
-FROM eclipse-temurin:17-jdk
-WORKDIR /app
-
-# Copy the built JAR from the build stage
-COPY --from=build /app/target/*.jar app.jar
-
-# Run the JAR
-ENTRYPOINT ["java", "-jar", "app.jar"]
+FROM openjdk:17.0.1-jdk-slim
+COPY --from=build /target/heroic-bookmarks-backend-0.0.1-SNAPSHOT.jar heroic-bookmarks-backend.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "heroic-bookmarks-backend.jar"]
