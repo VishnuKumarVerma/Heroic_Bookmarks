@@ -1,7 +1,6 @@
 package org.project.heroicbookmarksbackend.controller;
 
 import org.project.heroicbookmarksbackend.dto.CollectionsDTO;
-import org.project.heroicbookmarksbackend.entity.CollectionsEntity;
 import org.project.heroicbookmarksbackend.service.CollectionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
