@@ -41,10 +41,6 @@ logs/
 .env
 .env.*
 
-# Spring Boot sensitive config
-src/main/resources/application.properties
-src/main/resources/application-dev.yml
-
 # IntelliJ IDEA
 .idea/
 .idea/**/workspace.xml
