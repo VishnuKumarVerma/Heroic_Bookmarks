@@ -24,10 +24,13 @@ function CharacterPage() {
     }
 
     try {
-      await axios.post("http://localhost:8080/collections/save", {
-        email: localStorage.getItem("userEmail"),
-        code: "CHAR001",
-      });
+      await axios.post(
+        "https://heroic-bookmarks-frontend-oi8j.onrender.com/collections/save",
+        {
+          email: localStorage.getItem("userEmail"),
+          code: "CHAR001",
+        }
+      );
       alert("Character saved to your collection!");
     } catch (err) {
       alert("Error saving character: " + err.response?.data || err.message);
