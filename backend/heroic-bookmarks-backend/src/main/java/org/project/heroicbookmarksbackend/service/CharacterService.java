@@ -27,7 +27,6 @@ public class CharacterService {
         character.setBackground(characterEntity.getBackground());
         character.setBiome(characterEntity.getBiome());
         character.setSpecies(characterEntity.getSpecies());
-        character.setFaction(characterEntity.getFaction());
         character.setStory(characterEntity.getStory());
         characterRepository.save(characterEntity);
     }

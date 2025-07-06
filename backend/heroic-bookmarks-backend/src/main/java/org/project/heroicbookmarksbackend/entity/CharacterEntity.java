@@ -32,9 +32,6 @@ public class CharacterEntity {
     @Column(name = "species")
     private String species;
 
-    @Column(name = "faction")
-    private String faction;
-
     @Column(name = "story")
     private String story;
 

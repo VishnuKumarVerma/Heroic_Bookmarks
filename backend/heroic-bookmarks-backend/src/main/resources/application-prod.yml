@@ -5,7 +5,7 @@ spring:
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
@@ -15,10 +15,12 @@ spring:
     cors:
       allowed-origins: http://localhost:5173, https://heroicbookmarks.com
       allowed-methods: GET, POST, PUT, DELETE, OPTIONS
+
 logging:
   level:
     org:
       springframework:
         security: DEBUG
+
 server:
   port: 8080
