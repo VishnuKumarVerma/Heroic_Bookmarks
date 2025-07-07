@@ -13,7 +13,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const resp = await axios.post(
-        "https://heroic-bookmarks-frontend-oi8j.onrender.com/auth/login",
+        "https://heroic-bookmarks-backend-10d4.onrender.com/auth/login",
         user
       );
       alert("Login successful");

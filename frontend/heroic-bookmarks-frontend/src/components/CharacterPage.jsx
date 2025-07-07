@@ -25,7 +25,7 @@ function CharacterPage() {
 
     try {
       await axios.post(
-        "https://heroic-bookmarks-frontend-oi8j.onrender.com/collections/save",
+        "https://heroic-bookmarks-backend-10d4.onrender.com/collections/save",
         {
           email: localStorage.getItem("userEmail"),
           code: "CHAR001",
