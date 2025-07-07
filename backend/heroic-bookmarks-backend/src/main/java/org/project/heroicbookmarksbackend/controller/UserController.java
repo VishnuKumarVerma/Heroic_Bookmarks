@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://heroic-bookmarks-frontend-oi8j.onrender.com",
+    "https://heroicbookmarks.com"
+})
 public class UserController {
 
     @Autowired
