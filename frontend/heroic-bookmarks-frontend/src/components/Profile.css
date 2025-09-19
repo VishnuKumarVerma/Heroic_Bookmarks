@@ -1,0 +1,117 @@
+/* Make the container width 80% of viewport, centered */
+
+.profile-page {
+  background-color: #333;
+  height: 100vh;
+  width: 100vw;
+  background-image: radial-gradient(#444 1px, transparent 1px),
+    radial-gradient(#444 1px, transparent 1px);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Press Start 2P", cursive;
+}
+
+.profile-page .profile-container {
+  max-width: 1200px; /* optional max width for large screens */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Retro Navbar styles */
+.retro-navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+/* Buttons styling with retro touch */
+.nav-button {
+  background-color: #ffeaa7; /* Soft retro color */
+  border: 3px double #b7410e;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  color: #8b0000;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+  text-transform: uppercase;
+}
+
+.nav-button:hover {
+  background-color: #ffd700; /* Brighten on hover */
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transform: translateY(-2px);
+}
+
+
+/* Retro style card */
+.profile-page .profile-card {
+  background-color: #fcebb6; /* Retro pastel background */
+  border: 4px double #b7410e; /* Stylish border */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  font-family: "Press Start 2P", cursive; /* Retro pixel font, optional */
+  text-align: center;
+}
+
+/* Profile image styles */
+.profile-page .profile-image-wrapper {
+  margin-bottom: 15px;
+  background-color: #ffeaa7; /* light background for the image */
+  padding: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-page .profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #b7410e;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Username style */
+.profile-page .username {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.5rem;
+  color: #8b0000;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+/* Additional info */
+.profile-page .profile-info {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+@media only screen and (max-width: 700px) {
+  /* This should take effect below 600px viewport width */
+  .profile-page .profile-card {
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+  }
+  .profile-page .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+  .profile-page .username {
+    font-size: 1rem;
+  }
+}

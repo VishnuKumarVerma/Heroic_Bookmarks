@@ -1,0 +1,35 @@
+.collection-container {
+  background: #121212;
+  color: #fff;
+  padding: 2rem;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.collection-card {
+  background: linear-gradient(to bottom, #1a1a1a, #333);
+  border: 2px solid #ffcc00;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 200px;
+  transition: transform 0.3s;
+  box-shadow: 0 0 10px #ffcc00;
+}
+
+.collection-card:hover {
+  transform: scale(1.05);
+}
+
+.collection-card img {
+  width: 100%;
+  border-radius: 6px;
+}

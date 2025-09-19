@@ -1,5 +1,7 @@
 package org.project.heroicbookmarksbackend.entity;
 
+import java.util.*;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,5 +36,8 @@ public class CharacterEntity {
 
     @Column(name = "story")
     private String story;
+
+    @ManyToMany(mappedBy = "characters")
+    private Set<UserEntity> users = new HashSet<>();
 
 }

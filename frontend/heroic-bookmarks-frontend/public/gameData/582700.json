@@ -1,0 +1,14 @@
+{
+  "mapSize": [10, 10],
+  "startPos": [0, 0],
+  "items": [
+    {
+      "pos": [3, 2],
+      "clue": "The item glows near the golden temple ruins."
+    },
+    {
+      "pos": [7, 5],
+      "clue": "Something is buried where the light flickers most."
+    }
+  ]
+}

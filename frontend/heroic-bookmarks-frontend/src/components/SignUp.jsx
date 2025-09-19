@@ -13,10 +13,7 @@ const SignUp = () => {
 
   const handleSignUp = async () => {
     try {
-      await axios.post(
-        "https://heroic-bookmarks-backend-10d4.onrender.com/auth/signup",
-        user
-      );
+      await axios.post("http://localhost:8080/auth/signup", user);
       alert("Successfully Registered");
       login();
       navigate("/login");

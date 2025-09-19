@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import styles from "./Footer.module.css";
 import shop from "../assets/images/shop.png";
 import about from "../assets/images/about.png";
 
 const Footer = () => {
+  const navigate = useNavigate();
   const [isOpenShop, setIsOpenShop] = useState("null");
   const [isOpenAbout, setIsOpenAbout] = useState("null");
 
@@ -14,6 +15,10 @@ const Footer = () => {
 
   const toggleAbout = (type) => {
     setIsOpenAbout((prev) => (prev === type ? null : type));
+  };
+
+  const handleCollections = () => {
+    navigate("/collections");
   };
 
   return (
@@ -38,7 +43,7 @@ const Footer = () => {
         {isOpenAbout === "about" && (
           <div className={styles.popup + " " + styles.aboutToggle}>
             <ul>
-              <li>
+              <li onClick={handleCollections}>
                 <a href="">Collections</a>
               </li>
               <li>

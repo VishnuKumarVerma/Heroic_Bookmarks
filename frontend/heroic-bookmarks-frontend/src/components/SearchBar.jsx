@@ -12,9 +12,9 @@ const SearchBar = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `https://heroic-bookmarks-backend-10d4.onrender.com/characters/${code}`
+        `http://localhost:8080/characters/${code}`
       );
-      navigate(`/character/${code}`, { state: { character: response.data } });
+      navigate("/reveal", { state: { character: response.data } });
     } catch (error) {
       navigate("/notfound");
     }

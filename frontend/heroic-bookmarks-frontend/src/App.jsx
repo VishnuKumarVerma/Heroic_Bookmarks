@@ -5,8 +5,11 @@ import CharacterPage from "./components/CharacterPage";
 import NotFound from "./pages/NotFound";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import UserBase from "./components/UserBase";
 import AuthProvider from "./context/AuthContext";
+import CardRevealAnimation from "./components/CardRevealAnimation";
+import Profile from "./components/Profile";
+import GamePage from "./pages/GamePage";
+import Collections from "./pages/Collections";
 
 function App() {
   return (
@@ -17,8 +20,12 @@ function App() {
         <Route path="/notfound" element={<NotFound />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/userbase" element={<UserBase />} />
         <Route path="/character" element={<CharacterPage />} />
+        <Route path="/reveal" element={<CardRevealAnimation />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/collections" element={<Collections />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/game/:code" element={<GamePage />} />
       </Routes>
     </AuthProvider>
   );

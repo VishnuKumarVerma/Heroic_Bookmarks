@@ -12,10 +12,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const resp = await axios.post(
-        "https://heroic-bookmarks-backend-10d4.onrender.com/auth/login",
-        user
-      );
+      const resp = await axios.post("http://localhost:8080/auth/login", user);
       alert("Login successful");
       console.log(user);
       localStorage.setItem("isLoggedIn", "true");

@@ -1,5 +1,6 @@
 package org.project.heroicbookmarksbackend.controller;
 
+import java.util.Optional;
 import org.project.heroicbookmarksbackend.entity.CharacterEntity;
 import org.project.heroicbookmarksbackend.service.CharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,9 @@ public class CharacterController {
 
     @GetMapping("/{code}")
     public ResponseEntity<?> getCharacterByCode(@PathVariable String code) {
-        CharacterEntity character = characterService.getCharacterByCode(code);
+        Optional<CharacterEntity> character = characterService.getCharacterByCode(code);
 
-        if(character==null) return ResponseEntity.notFound().build();
+        if(character.isEmpty()) return ResponseEntity.notFound().build();
 
         return ResponseEntity.ok(character);
     }

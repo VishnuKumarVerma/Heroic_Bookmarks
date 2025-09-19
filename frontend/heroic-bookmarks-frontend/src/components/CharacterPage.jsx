@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 import styles from "./CharacterPage.module.css";
@@ -13,27 +13,35 @@ function CharacterPage() {
   const [hoveredDot, setHoveredDot] = useState(null);
   const [displayedInfo, setDisplayedInfo] = useState("");
 
+  const { code } = useParams();
+
   const characterInfo = ``;
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   const handleGrabNow = async () => {
-    if (!isLoggedIn) {
-      navigate("/login", { state: { from: `/character/CHAR001` } });
+    const userId = localStorage.getItem("userEmail");
+    if (!userId) {
+      alert("Please log in to grab the character!");
       return;
     }
 
     try {
-      await axios.post(
-        "https://heroic-bookmarks-backend-10d4.onrender.com/collections/save",
+      const response = await axios.post(
+        "http://localhost:8080/api/collection/add",
+        null,
         {
-          email: localStorage.getItem("userEmail"),
-          code: "CHAR001",
+          params: {
+            userId: userId,
+            characterCode: code,
+          },
         }
       );
-      alert("Character saved to your collection!");
-    } catch (err) {
-      alert("Error saving character: " + err.response?.data || err.message);
+
+      alert(response.data.message);
+    } catch (error) {
+      console.error("Error grabbing character:", error);
+      alert("Something went wrong.");
     }
   };
 
@@ -137,10 +145,13 @@ function CharacterPage() {
             </div>
 
             <div className={styles.topRightSections}>
+              <button onClick={() => navigate(`/game/${code}`)}>
+                ▶️ Play Game
+              </button>
               {isLoggedIn ? (
                 <>
                   <button onClick={() => navigate("/profile")}>👤</button>
-                  <button onClick={() => navigate("/collection")}>📚</button>
+                  <button onClick={() => navigate("/collections")}>📚</button>
                   <button onClick={() => navigate("/activity")}>🕘</button>
                 </>
               ) : (
@@ -163,7 +174,7 @@ function CharacterPage() {
           ))}
         </div>
 
-        {showPopup && (
+        {/* {showPopup && (
           <div className={styles.popup}>
             <button className={styles.closeButton} onClick={handleClose}>
               close
@@ -172,7 +183,7 @@ function CharacterPage() {
             <p>Please sign in to store it in your collection.</p>
             <button onClick={handleContinue}>Continue</button>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

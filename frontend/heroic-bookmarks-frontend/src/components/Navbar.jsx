@@ -1,14 +1,20 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 import logo from "../assets/images/mainLogo.png";
 import profile from "../assets/images/newProfile.webp";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(null);
 
   const toggle = (type) => {
     setIsOpen((prev) => (prev === type ? null : type));
+  };
+
+  const handleLogin = () => {
+    navigate("/profile");
   };
 
   return (
@@ -26,7 +32,7 @@ const Navbar = () => {
         {isOpen === "profile" && (
           <div className={styles.popup + " " + styles.profilePopup}>
             <ul>
-              <li>
+              <li onClick={handleLogin}>
                 <a href="">Profile</a>
               </li>
               <li>

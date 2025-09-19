@@ -1,0 +1,158 @@
+.minigame-container {
+  text-align: center;
+  padding: 1rem;
+  background-color: #121212;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+/* Headings */
+h2 {
+  color: #ffd700;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+  margin-bottom: 1rem;
+}
+
+/* Score & Radar Text */
+.score,
+.radar {
+  margin: 0.5rem;
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.2rem);
+  color: #00ffff;
+}
+
+/* Map & Cell Grid */
+.map {
+  display: inline-block;
+  margin: 1rem auto;
+  border: 4px solid #555;
+  max-width: 90vw;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+}
+
+/* Responsive tile cells */
+.cell {
+  width: clamp(30px, 8vw, 40px);
+  height: clamp(30px, 8vw, 40px);
+  border: 1px solid #333;
+  background-image: url('/assets/tile-grass.png');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cell.found {
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 4px #ffd700;
+  }
+  to {
+    box-shadow: 0 0 12px #ffd700;
+  }
+}
+
+/* Player and Item Sprites */
+.player,
+.item {
+  width: 70%;
+  height: 70%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Controls & Actions */
+.controls,
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.controls button,
+.actions button {
+  padding: 10px 14px;
+  font-size: clamp(14px, 1.5vw, 18px);
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #888;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 80px;
+}
+
+.controls button:hover,
+.actions button:hover {
+  background-color: #444;
+  border-color: #fff;
+}
+
+/* Clue Popup */
+.clue-popup {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(34, 34, 34, 0.95);
+  color: #ffcc00;
+  padding: 1rem 2rem;
+  border: 2px solid gold;
+  border-radius: 12px;
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.2rem);
+  max-width: 80%;
+  animation: fadeInOut 4s forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+}
+
+/* Mobile Specific Tweaks */
+@media (max-width: 600px) {
+  .minigame-container {
+    padding: 0.5rem;
+  }
+
+  .map {
+    transform: scale(1.05);
+  }
+
+  .controls button,
+  .actions button {
+    min-width: 70px;
+    padding: 8px 10px;
+  }
+}

@@ -1,5 +1,7 @@
 package org.project.heroicbookmarksbackend.entity;
 
+import java.util.*;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,5 +22,13 @@ public class UserEntity {
     private String email;
     @Column(name = "password")
     private String password;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_characters",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "character_id")
+    )
+    private Set<CharacterEntity> characters = new HashSet<>();
 
 }

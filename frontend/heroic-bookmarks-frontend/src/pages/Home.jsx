@@ -4,7 +4,6 @@ import styles from "./Home.module.css";
 
 import bgGif from "../assets/images/home-background.gif";
 import Header from "../components/Header";
-import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
 
 const Home = () => {

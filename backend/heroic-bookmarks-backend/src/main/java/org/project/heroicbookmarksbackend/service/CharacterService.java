@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CharacterService {
@@ -27,12 +28,11 @@ public class CharacterService {
         character.setBackground(characterEntity.getBackground());
         character.setBiome(characterEntity.getBiome());
         character.setSpecies(characterEntity.getSpecies());
-        character.setStory(characterEntity.getStory());
         characterRepository.save(characterEntity);
     }
 
     // Service layer to find the characters by code
-    public CharacterEntity getCharacterByCode(String code) {
+    public Optional<CharacterEntity> getCharacterByCode(String code) {
         return characterRepository.findByCode(code);
     }
 }
