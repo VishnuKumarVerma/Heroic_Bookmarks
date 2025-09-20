@@ -13,7 +13,7 @@ const Collections = () => {
 
     axios
       .get(
-        `https://heroic-bookmarks-frontend-oi8j.onrender.com/api/collection/${userId}`
+        `https://heroic-bookmarks-backend-9xkg.onrender.com/api/collection/${userId}`
       )
       .then((res) => setCharacters(res.data))
       .catch((err) => console.error("Error loading collection", err));

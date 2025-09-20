@@ -28,7 +28,7 @@ function CharacterPage() {
 
     try {
       const response = await axios.post(
-        "https://heroic-bookmarks-frontend-oi8j.onrender.com/api/collection/add",
+        "https://heroic-bookmarks-backend-9xkg.onrender.com/api/collection/add",
         null,
         {
           params: {
